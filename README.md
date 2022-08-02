@@ -28,6 +28,7 @@ npm run migration:generate ./migrations/automigration
 ```
 
 **Result**
+
 After generating the migration, I got this output:
 ```js
 await queryRunner.query(`ALTER TABLE "tags" ADD CONSTRAINT "fkey_tags_on_community_id" FOREIGN KEY ("community_id") REFERENCES "communities"("id") ON DELETE NO ACTION ON UPDATE NO ACTION`);
