@@ -1,0 +1,24 @@
+{
+  "name": "typeorm-migration-issue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js --dataSource ./ormconfig.ts",
+    "migration:generate": "npm run typeorm -- migration:generate",
+    "migration:run": "npm run typeorm -- migration:run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.7.3",
+    "typeorm": "^0.3.7",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.6.3",
+    "ts-node": "^10.9.1"
+  }
+}
