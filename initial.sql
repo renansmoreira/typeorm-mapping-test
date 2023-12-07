@@ -7,7 +7,8 @@ CREATE TABLE communities (
     tag_id UUID,
     name VARCHAR NOT NULL,
     is_private BOOLEAN DEFAULT false NOT NULL,
-    description VARCHAR
+    description VARCHAR,
+    CONSTRAINT index_communities_on_tag_id UNIQUE (tag_id)
 );
 
 COMMENT ON COLUMN communities.slug IS 'A readable identifier for the community';
@@ -22,8 +23,6 @@ COMMENT ON COLUMN communities.description IS 'The description for the community'
 
 CREATE UNIQUE INDEX index_communities_on_slug ON communities (slug);
 
-CREATE UNIQUE INDEX index_communities_on_tag_id ON communities (tag_id);
-
 CREATE TABLE tags (
     id UUID DEFAULT GEN_RANDOM_UUID() NOT NULL PRIMARY KEY,
     created_at TIMESTAMP DEFAULT now() NOT NULL,
@@ -31,7 +30,8 @@ CREATE TABLE tags (
     deleted_at TIMESTAMP,
     name VARCHAR NOT NULL,
     slug VARCHAR NOT NULL,
-    community_id UUID
+    community_id UUID,
+    CONSTRAINT index_tags_on_community_id UNIQUE (community_id)
 );
 
 COMMENT ON COLUMN tags.slug IS 'Readable URL encoded ID';

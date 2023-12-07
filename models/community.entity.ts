@@ -2,7 +2,6 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, Index, JoinColumn, 
 import { Tag } from './tag.entity';
 
 @Index('index_communities_on_slug', ['slug'], { unique: true })
-@Index('index_communities_on_tag_id', ['tagId'], { unique: true })
 @Entity('communities', { schema: 'public' })
 export class Community {
   
